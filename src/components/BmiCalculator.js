@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 
 function BmiCalculator() {
   const [height, setHeight] = useState('');
@@ -25,36 +25,40 @@ function BmiCalculator() {
     <Container>
       <Row className="justify-content-center align-items-center" style={{ height: '100vh' }}>
         <Col xs={12} md={6} lg={4}>
-          <div className="text-center">
-            <h1>BMI Calculator</h1>
-            <Form>
-              <Form.Group controlId="formHeight" className="mt-3">
-                <Form.Label>Height (cm):</Form.Label>
-                <Form.Control
-                  type="number"
-                  value={height}
-                  onChange={(e) => setHeight(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group controlId="formWeight" className="mt-3">
-                <Form.Label>Weight (kg):</Form.Label>
-                <Form.Control
-                  type="number"
-                  value={weight}
-                  onChange={(e) => setWeight(e.target.value)}
-                />
-              </Form.Group>
-              <Button variant="primary mt-3" onClick={calculateBmi}>
-                Calculate BMI
-              </Button>
-            </Form>
-            {bmi && (
-              <div className="result mt-3">
-                <p>Your BMI: {bmi}</p>
-                <p>Category: {category}</p>
-              </div>
-            )}
-          </div>
+          <Card className="text-center p-4 bg-info-subtle">
+            <Card.Body>
+              <Card.Title>BMI Calculator</Card.Title>
+              <Form>
+                <Form.Group controlId="formHeight">
+                  <Form.Label>Height (cm):</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group controlId="formWeight" className="mt-3">
+                  <Form.Label>Weight (kg):</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={weight}
+                    onChange={(e) => setWeight(e.target.value)}
+                  />
+                </Form.Group>
+                <Button variant="primary mt-3" onClick={calculateBmi}>
+                  Calculate BMI
+                </Button>
+              </Form>
+              {bmi && (
+                <Card className="result mt-3">
+                  <Card.Body>
+                    <Card.Text>Your BMI: <strong>{bmi}</strong></Card.Text>
+                    <Card.Text>Category: <strong>{category}</strong></Card.Text>
+                  </Card.Body>
+                </Card>
+              )}
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>
