@@ -2,22 +2,22 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 
 function CalculadoraImc() {
-  const [height, setHeight] = useState('');
-  const [weight, setWeight] = useState('');
-  const [bmi, setBmi] = useState(null);
-  const [category, setCategory] = useState('');
+  const [altura, setHeight] = useState('');
+  const [peso, setWeight] = useState('');
+  const [imc, setBmi] = useState(null);
+  const [categoria, setCategory] = useState('');
 
   const calculateBmi = () => {
-    const heightInMeters = height / 100;
-    const bmiValue = (weight / (heightInMeters * heightInMeters)).toFixed(2);
-    setBmi(bmiValue);
-    setCategory(getBmiCategory(bmiValue));
+    const Alturaenmetros = altura / 100;
+    const IMCvalue = (peso / (Alturaenmetros * Alturaenmetros)).toFixed(2);
+    setBmi(IMCvalue);
+    setCategory(getBmiCategory(IMCvalue));
   };
 
-  const getBmiCategory = (bmi) => {
-    if (bmi < 18.5) return 'Poco Peso';
-    if (bmi < 24.9) return 'Peso Normal';
-    if (bmi < 29.9) return 'Mucho Peso';
+  const getBmiCategory = (imc) => {
+    if (imc < 18.5) return 'Poco Peso';
+    if (imc < 24.9) return 'Peso Normal';
+    if (imc < 29.9) return 'Mucho Peso';
     return 'Ingrese un valor valido';
   };
 
@@ -33,7 +33,7 @@ function CalculadoraImc() {
                   <Form.Label>Altura (cm):</Form.Label>
                   <Form.Control
                     type="number"
-                    value={height}
+                    value={altura}
                     onChange={(e) => setHeight(e.target.value)}
                   />
                 </Form.Group>
@@ -41,7 +41,7 @@ function CalculadoraImc() {
                   <Form.Label>Peso (kg):</Form.Label>
                   <Form.Control
                     type="number"
-                    value={weight}
+                    value={peso}
                     onChange={(e) => setWeight(e.target.value)}
                   />
                 </Form.Group>
@@ -49,11 +49,11 @@ function CalculadoraImc() {
                   Calcular IMC
                 </Button>
               </Form>
-              {bmi && (
+              {imc && (
                 <Card className="result mt-3">
                   <Card.Body>
-                    <Card.Text>Tu IMC: <strong>{bmi}</strong></Card.Text>
-                    <Card.Text>Categoria: <strong>{category}</strong></Card.Text>
+                    <Card.Text>Tu IMC: <strong>{imc}</strong></Card.Text>
+                    <Card.Text>Categoria: <strong>{categoria}</strong></Card.Text>
                   </Card.Body>
                 </Card>
               )}
