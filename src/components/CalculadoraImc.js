@@ -15,9 +15,9 @@ function CalculadoraImc() {
   };
 
   const getBmiCategory = (bmi) => {
-    if (bmi < 18.5) return 'Underweight';
-    if (bmi < 24.9) return 'Normal weight';
-    if (bmi < 29.9) return 'Overweight';
+    if (bmi < 18.5) return 'Poco Peso';
+    if (bmi < 24.9) return 'Peso Normal';
+    if (bmi < 29.9) return 'Mucho Peso';
     return 'Obesity';
   };
 
