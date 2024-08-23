@@ -18,7 +18,7 @@ function CalculadoraImc() {
     if (bmi < 18.5) return 'Poco Peso';
     if (bmi < 24.9) return 'Peso Normal';
     if (bmi < 29.9) return 'Mucho Peso';
-    return 'Obesity';
+    return 'Ingrese un valor valido';
   };
 
   return (
