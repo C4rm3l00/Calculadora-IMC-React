@@ -28,7 +28,7 @@ function BmiCalculator() {
           <div className="text-center">
             <h1>BMI Calculator</h1>
             <Form>
-              <Form.Group controlId="formHeight">
+              <Form.Group controlId="formHeight" className="mt-3">
                 <Form.Label>Height (cm):</Form.Label>
                 <Form.Control
                   type="number"
@@ -36,7 +36,7 @@ function BmiCalculator() {
                   onChange={(e) => setHeight(e.target.value)}
                 />
               </Form.Group>
-              <Form.Group controlId="formWeight">
+              <Form.Group controlId="formWeight" className="mt-3">
                 <Form.Label>Weight (kg):</Form.Label>
                 <Form.Control
                   type="number"
@@ -44,7 +44,7 @@ function BmiCalculator() {
                   onChange={(e) => setWeight(e.target.value)}
                 />
               </Form.Group>
-              <Button variant="primary" onClick={calculateBmi}>
+              <Button variant="primary mt-3" onClick={calculateBmi}>
                 Calculate BMI
               </Button>
             </Form>
