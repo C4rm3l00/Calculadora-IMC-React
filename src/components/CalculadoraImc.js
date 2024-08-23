@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 
-function BmiCalculator() {
+function CalculadoraImc() {
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [bmi, setBmi] = useState(null);
@@ -27,10 +27,10 @@ function BmiCalculator() {
         <Col xs={12} md={6} lg={4}>
           <Card className="text-center p-4 bg-info-subtle">
             <Card.Body>
-              <Card.Title>BMI Calculator</Card.Title>
+              <Card.Title>IMC Calculator</Card.Title>
               <Form>
                 <Form.Group controlId="formHeight">
-                  <Form.Label>Height (cm):</Form.Label>
+                  <Form.Label>Altura (cm):</Form.Label>
                   <Form.Control
                     type="number"
                     value={height}
@@ -38,7 +38,7 @@ function BmiCalculator() {
                   />
                 </Form.Group>
                 <Form.Group controlId="formWeight" className="mt-3">
-                  <Form.Label>Weight (kg):</Form.Label>
+                  <Form.Label>Peso (kg):</Form.Label>
                   <Form.Control
                     type="number"
                     value={weight}
@@ -46,14 +46,14 @@ function BmiCalculator() {
                   />
                 </Form.Group>
                 <Button variant="primary mt-3" onClick={calculateBmi}>
-                  Calculate BMI
+                  Calcular IMC
                 </Button>
               </Form>
               {bmi && (
                 <Card className="result mt-3">
                   <Card.Body>
-                    <Card.Text>Your BMI: <strong>{bmi}</strong></Card.Text>
-                    <Card.Text>Category: <strong>{category}</strong></Card.Text>
+                    <Card.Text>Tu IMC: <strong>{bmi}</strong></Card.Text>
+                    <Card.Text>Categoria: <strong>{category}</strong></Card.Text>
                   </Card.Body>
                 </Card>
               )}
@@ -65,4 +65,4 @@ function BmiCalculator() {
   );
 }
 
-export default BmiCalculator;
+export default CalculadoraImc;
